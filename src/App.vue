@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import Button from './components/Button.vue'
 import { EnvelopeIcon, PhoneIcon, MapPinIcon  } from "@heroicons/vue/20/solid"
+function eventTest(){
+  alert('message test function')
+}
 </script>
 
 <template>
   <div>
     <h2>Color States</h2>
     <div class="container">
-      <Button className="normal" msg="Normal"/>
+      <Button className="normal" @handler="eventTest"  msg="Normal"/>
       <Button className="primary" msg="Primary" />
       <Button className="link" msg="Link"/>
       <Button className="info"  msg="Info"/>

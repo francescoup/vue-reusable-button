@@ -7,18 +7,26 @@ withDefaults(
   msg?: string
   className?:string
   disabled?:boolean
+  typeName?:'button' | 'submit' | 'reset' | undefined
   leftIcon?:any
   rightIcon?:any
   centerIcon?:any
   loading?:boolean
+  
 }>(),
 {
+  msg:'',
   className:'normal',
   disabled:false,
-  msg:'',
-  loading:false
+  typeName:'button',
+  loading:false,
+  
 }
 )
+
+const emit = defineEmits<{
+  (e: 'handler'):void}>()
+
 
 
 
@@ -28,6 +36,9 @@ withDefaults(
  <button 
  :class="className"
  :disabled="disabled"
+ :type='typeName'
+ @click="emit('handler')"
+
 
  >
  <svg
